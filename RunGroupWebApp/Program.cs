@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using RunGroopWebApp.Data;
 using RunGroupWebApp.Data;
+using RunGroupWebApp.Helpers;
 using RunGroupWebApp.Interfaces;
 using RunGroupWebApp.Repository;
 
@@ -15,6 +16,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 builder.Services.AddScoped<IClubRepository, ClubRepository>();
 builder.Services.AddScoped<IRaceRepository,RaceRepository>();
+builder.Services.AddScoped<IPhotoService,PhotoService>();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 var app = builder.Build();
 
 if(args.Length == 1 && args[0].ToLower() == "seeddata")
