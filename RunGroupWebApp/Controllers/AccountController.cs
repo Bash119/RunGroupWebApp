@@ -84,7 +84,7 @@ namespace RunGroupWebApp.Controllers
             return RedirectToAction("Index","Race");
         }
 
-        [HttpPost]
+       
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
